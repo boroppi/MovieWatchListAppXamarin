@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage Title="{Binding Title}" xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Watchlist.MovieDetailPage">
+    <ContentPage.Content>
+        <RelativeLayout>
+            <BoxView x:Name="topBar" Color="Transparent" 
+                     Opacity="0.5" 
+                     RelativeLayout.HeightConstraint="{ConstraintExpression
+                Type=RelativeToParent,
+                Property=Height,
+                Factor=0,
+                Constant=40}"
+                     RelativeLayout.WidthConstraint="{ConstraintExpression
+                Type=RelativeToParent,
+                Property=Width,
+                Factor=1}"
+                     RelativeLayout.YConstraint="{ConstraintExpression
+                Type=RelativeToView,
+                ElementName=ImageContainer,
+                Property=Height,
+                Factor=1,
+                Constant=-20}">
+            </BoxView>
+            <Image Source="{Binding Large_Poster_Image_Url}" 
+                   Aspect="AspectFill"
+                   BackgroundColor="LightGray"                        
+                   x:Name="ImageContainer"
+                         RelativeLayout.HeightConstraint="{ConstraintExpression
+                Type=RelativeToParent,
+                Property=Height,
+                Factor=0.5}"             
+                         RelativeLayout.WidthConstraint="{ConstraintExpression
+                Type=RelativeToParent,
+                Property=Width,
+                Factor=1}">
+            </Image>
+
+
+            <StackLayout RelativeLayout.HeightConstraint="{ConstraintExpression
+                Type=RelativeToParent,
+                Property=Height,
+                Factor=0.5}"
+                         RelativeLayout.WidthConstraint="{ConstraintExpression
+                Type=RelativeToParent,
+                Property=Width,
+                Factor=1}"
+                         RelativeLayout.YConstraint="{ConstraintExpression
+                Type=RelativeToView,
+                ElementName=ImageContainer,
+                Property=Height,
+                Factor=1}"
+                         Padding="15">
+                <Label Text="{Binding Title}" 
+                       FontSize="18"></Label>
+                <Label Text="{Binding ReleaseDate, StringFormat='Release date: {0}'}" 
+                       TextColor="Gray" 
+                       FontSize="9"></Label>
+                <Label Text="{Binding Overview}" 
+                       FontSize="12"></Label>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" 
+                         HorizontalOptions="EndAndExpand"
+                         VerticalOptions="Center" 
+                         Padding="30,0"
+                         RelativeLayout.HeightConstraint="{ConstraintExpression
+                Type=RelativeToView,
+                ElementName=topBar,
+                Property=Height,
+                Factor=1}"           
+                         RelativeLayout.WidthConstraint="{ConstraintExpression
+                Type=RelativeToView,
+                ElementName=topBar,
+                Property=Width,
+                Factor=1}"
+                         RelativeLayout.YConstraint="{ConstraintExpression
+                Type=RelativeToView,
+                ElementName=topBar,
+                Property=Y,
+                Factor=1}">
+                <Frame VerticalOptions="Center"
+                       Padding="0"                       
+                       CornerRadius="20"
+                       HeightRequest="40"
+                       WidthRequest="40"
+                       TranslationX="3.4"
+                       HasShadow="True">
+                </Frame>
+            </StackLayout>
+
+            <StackLayout Padding="30,0"
+                         Orientation="Horizontal"
+                         VerticalOptions="Center"
+                         HorizontalOptions="EndAndExpand"
+                         TranslationY="1"
+                         RelativeLayout.HeightConstraint="{ConstraintExpression
+                Type=RelativeToView,
+                ElementName=topBar,
+                Property=Height,
+                Factor=1}"
+                         RelativeLayout.WidthConstraint="{ConstraintExpression
+                Type=RelativeToView,
+                ElementName=topBar,
+                Property=Width,
+                Factor=1}"
+                         RelativeLayout.YConstraint="{ConstraintExpression
+                Type=RelativeToView,
+                ElementName=topBar,
+                Property=Y,
+                Factor=1}">
+
+                <Image x:Name="iconAddWatchList" Source="favoritef.png" 
+                       HeightRequest="40">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="favoriteTapped" NumberOfTapsRequired="1"/>
+                    </Image.GestureRecognizers>
+                </Image>
+
+            </StackLayout>
+        </RelativeLayout>
+    </ContentPage.Content>
+</ContentPage>

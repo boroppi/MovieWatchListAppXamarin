@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CarouselPage xmlns:local="clr-namespace:Watchlist"
+              xmlns="http://xamarin.com/schemas/2014/forms"
+              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"           
+              x:Class="Watchlist.MainPage">
+
+    <local:MovieListPage></local:MovieListPage>
+
+    <local:WatchListPage></local:WatchListPage>
+
+</CarouselPage>

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage Title="My watch list"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Watchlist.WatchListPage">
+    <ContentPage.Content>
+
+        <!--<StackLayout  BackgroundColor="#1976d2"                         
+                    RelativeLayout.WidthConstraint="{ConstraintExpression
+                Type=RelativeToParent,
+                Property=Width,
+                Factor=1}"
+                    RelativeLayout.HeightConstraint="{ConstraintExpression
+                Type=RelativeToParent,
+                Property=Height,
+                Factor=0,
+                Constant=48}">
+                <Label x:Name="labelMyWatchList" Text=""
+                   FontSize="30"                   
+                   TextColor="White" 
+                   HorizontalTextAlignment="Center" 
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="CenterAndExpand">
+                </Label>
+            </StackLayout>-->
+        <StackLayout>
+            <SearchBar VerticalOptions="Center" x:Name="searchBar" Text="My Watch List" PlaceholderColor="#1976d2" 
+                       TextColor="#1976d2" FontSize="30" FontAttributes="Bold" Focused="searchBar_Focused" Unfocused="searchBar_Unfocused"
+                       TextChanged="searchBar_TextChanged" Placeholder="Search..."
+                       HorizontalTextAlignment="Center">
+            </SearchBar>
+            <ActivityIndicator x:Name="SearchingIndicator"   IsVisible="False"/>
+            <Frame x:Name="notFound" Padding="20" HasShadow="False" IsVisible="False">
+                <Label Text="No movies found matching your search" TextColor="Gray"></Label>
+            </Frame>
+            <ListView x:Name="listWatchList" IsVisible="True" HasUnevenRows="True" ItemSelected="listWatchList_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ImageCell ImageSource="{Binding Poster_Image_Url}"
+                                   Text="{Binding Title}" Detail="{Binding DateCreated}"></ImageCell>
+
+                        <!--<ViewCell>
+                            <StackLayout Orientation="Horizontal" Padding="5" VerticalOptions="Center">
+                                <Image Source="{Binding Poster_Image_Url}"  
+                                       HeightRequest="50"                                       
+                                       Aspect="AspectFill"></Image>
+                                <StackLayout VerticalOptions="Center">
+                                    <Label Text="{Binding Title}" TextColor="Black" FontAttributes="Bold"></Label>
+                                    <Label Text="{Binding Release_Year}" TextColor="Gray" FontSize="8"></Label>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>-->
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

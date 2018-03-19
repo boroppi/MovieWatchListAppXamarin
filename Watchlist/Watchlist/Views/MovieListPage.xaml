@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage Title="Movies" xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Watchlist.MovieListPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <SearchBar x:Name="searchBar" TextChanged="searchBar_TextChanged" Placeholder="Search..."></SearchBar>
+            <ActivityIndicator x:Name="SearchingIndicator" IsRunning="{Binding IsSearching}"  IsVisible="False"/>
+            <Frame x:Name="notFound" Padding="20" HasShadow="False" IsVisible="False">
+                <Label Text="No movies found matching your search" TextColor="Gray"></Label>
+            </Frame>
+            <ListView x:Name="listViewMovies" IsVisible="False" HasUnevenRows="True" ItemSelected="listViewMovies_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ImageCell ImageSource="{Binding Poster_Image_Url}"
+                                   Text="{Binding Title}" Detail="{Binding Release_Year}"></ImageCell>
+                        <!--<ViewCell>
+                            <StackLayout Orientation="Horizontal" Padding="5" VerticalOptions="Center">
+                                <Image Source="{Binding Poster_Image_Url}"  
+                                       HeightRequest="50"                                       
+                                       Aspect="AspectFill"></Image>
+                                <StackLayout VerticalOptions="Center">
+                                    <Label Text="{Binding Title}" TextColor="Black" FontAttributes="Bold"></Label>
+                                    <Label Text="{Binding Release_Year}" TextColor="Gray" FontSize="8"></Label>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>-->
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
